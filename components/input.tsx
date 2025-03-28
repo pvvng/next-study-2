@@ -3,7 +3,7 @@ import { InputHTMLAttributes } from "react";
 interface InputProps {
   id: string;
   name: string;
-  labelText: string;
+  labelText?: string;
   errors?: string[];
 }
 
@@ -25,8 +25,8 @@ export default function Input({
         <input
           name={name}
           className="w-full h-10 bg-transparent border-none transition-all 
-          ring-2 ring-slate-100 rounded-xl px-3
-          focus:outline-none focus:bg-slate-100
+          ring-2 ring-neutral-100 rounded-2xl px-3
+          focus:outline-none focus:bg-neutral-100
           placeholder:text-neutral-800 dark:placeholder:text-neutral-400 placeholder:text-sm 
           aria-[invalid=true]:border-red-500 aria-[invalid=true]:ring-red-500 
           disabled:bg-neutral-100 dark:disabled:bg-neutral-800"

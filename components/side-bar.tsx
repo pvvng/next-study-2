@@ -1,23 +1,45 @@
+"use client";
+
 import {
-  PlusCircleIcon,
+  ChatBubbleBottomCenterTextIcon,
   PresentationChartBarIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
   return (
-    <div className="w-full min-h-screen p-5 sticky top-0 border-r border-slate-200">
+    <div className="bg-neutral-100 w-full min-h-screen p-5 sticky top-0 border-r border-slate-200">
       <div className="flex flex-col gap-10">
         {/* header */}
         <div className="flex gap-2 items-center">
-          <div className="size-8 bg-slate-600 rounded-full" />
+          <div className="size-8 bg-black rounded-full" />
           <p className="text-xl font-semibold">LOGO</p>
         </div>
         {/* lists */}
         <ul className="flex flex-col gap-3">
-          <li className="p-3 bg-white flex gap-3 items-center rounded-xl shadow">
-            <PresentationChartBarIcon className="size-6 text-blue-500" />
-            <p className="font-semibold">AI CHAT</p>
-          </li>
+          <Link href="/">
+            <li
+              className={`p-3 flex gap-3 items-center rounded-xl shadow ${
+                pathname === "/" ? "bg-neutral-200" : "bg-white"
+              }`}
+            >
+              <PresentationChartBarIcon className="size-6 text-neutral-400" />
+              <p className="font-semibold">상권 분석</p>
+            </li>
+          </Link>
+          <Link href="/chat">
+            <li
+              className={`p-3 flex gap-3 items-center rounded-xl shadow ${
+                pathname === "/chat" ? "bg-neutral-200" : "bg-white"
+              }`}
+            >
+              <ChatBubbleBottomCenterTextIcon className="size-6 text-neutral-400" />
+              <p className="font-semibold">AI 채팅</p>
+            </li>
+          </Link>
         </ul>
       </div>
     </div>
